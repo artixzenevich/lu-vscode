@@ -1,0 +1,44 @@
+{
+  "comments": {
+    "lineComment": "#"
+  },
+  "brackets": [
+    ["{", "}"],
+    ["[", "]"],
+    ["(", ")"]
+  ],
+  "autoClosingPairs": [
+    { "open": "{", "close": "}" },
+    { "open": "[", "close": "]" },
+    { "open": "(", "close": ")" },
+    { "open": "\"", "close": "\"" },
+    { "open": "'", "close": "'" }
+  ],
+  "surroundingPairs": [
+    ["{", "}"],
+    ["[", "]"],
+    ["(", ")"],
+    ["\"", "\""],
+    ["'", "'"]
+  ],
+  "folding": {
+    "markers": {
+      "start": "^\\s*(процедура|если|иначе\\s+если|пока|для|повтори)\\b",
+      "end": "^\\s*конец\\b"
+    }
+  },
+  "indentationRules": {
+    "increaseIndentPattern": "^\\s*(процедура\\b|если\\b|пока\\b|для\\b|повтори\\b|иначе\\s+если\\b)",
+    "decreaseIndentPattern": "^\\s*(конец\\b|иначе\\b)(?!\\s+если\\b)"
+  },
+  "onEnterRules": [
+    {
+      "beforeText": "^\\s*(процедура\\b|если\\b|пока\\b|для\\b|повтори\\b|иначе\\s+если\\b)",
+      "action": { "indentAction": "indent" }
+    },
+    {
+      "beforeText": "^\\s*(конец\\b|иначе\\b)(?!\\s+если\\b)",
+      "action": { "indentAction": "none" }
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Lu",
+  "scopeName": "source.lu",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#chars" },
+    { "include": "#numbers" },
+    { "include": "#keywords-control" },
+    { "include": "#keywords-declaration" },
+    { "include": "#keywords-command" },
+    { "include": "#logical-operators" },
+    { "include": "#constants" },
+    { "include": "#builtin-functions" },
+    { "include": "#operators" },
+    { "include": "#identifiers" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.block.lu",
+          "begin": "///",
+          "end": "///"
+        },
+        {
+          "name": "comment.line.double-slash.lu",
+          "match": "//[^\\n]*"
+        },
+        {
+          "name": "comment.line.number-sign.lu",
+          "match": "#[^\\n]*"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.lu",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            { "name": "constant.character.escape.lu", "match": "\\\\." }
+          ]
+        }
+      ]
+    },
+    "chars": {
+      "patterns": [
+        {
+          "name": "string.quoted.single.lu",
+          "match": "'[^'\\n]'"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.lu",
+          "match": "(?<![\\p{L}\\p{N}_])-?\\d+(\\.\\d+)?(?![\\p{L}\\p{N}_])"
+        }
+      ]
+    },
+    "keywords-control": {
+      "patterns": [
+        {
+          "name": "keyword.control.lu",
+          "match": "(?<![\\p{L}\\p{N}_])(?:если|то|иначе|конец|пока|для|от|до|повтори|раз)(?![\\p{L}\\p{N}_])"
+        }
+      ]
+    },
+    "keywords-declaration": {
+      "patterns": [
+        {
+          "name": "keyword.declaration.lu",
+          "match": "(?<![\\p{L}\\p{N}_])(?:запомнить|процедура|вернуть)(?![\\p{L}\\p{N}_])"
+        }
+      ]
+    },
+    "keywords-command": {
+      "patterns": [
+        {
+          "name": "keyword.other.lu",
+          "match": "(?<![\\p{L}\\p{N}_])(?:печать|ввод|выполнить)(?![\\p{L}\\p{N}_])"
+        }
+      ]
+    },
+    "logical-operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.logical.lu",
+          "match": "(?<![\\p{L}\\p{N}_])(?:и|или|не)(?![\\p{L}\\p{N}_])"
+        }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        {
+          "name": "constant.language.lu",
+          "match": "(?<![\\p{L}\\p{N}_])(?:истина|ложь|ничего)(?![\\p{L}\\p{N}_])"
+        }
+      ]
+    },
+    "builtin-functions": {
+      "patterns": [
+        {
+          "name": "support.function.builtin.lu",
+          "match": "(?<![\\p{L}\\p{N}_])длина(?=\\s*\\()"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.arithmetic.lu",
+          "match": "(?:\\+|\\-|\\*|/)"
+        },
+        {
+          "name": "keyword.operator.comparison.lu",
+          "match": "(?:=|!=|<=|>=|<|>)"
+        },
+        {
+          "name": "punctuation.lu",
+          "match": "[:,\\.]"
+        }
+      ]
+    },
+    "identifiers": {
+      "patterns": [
+        {
+          "name": "variable.other.lu",
+          "match": "[\\p{L}_][\\p{L}\\p{N}_]*"
+        }
+      ]
+    }
+  }
+}

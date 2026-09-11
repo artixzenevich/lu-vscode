@@ -1,0 +1,50 @@
+{
+  "name": "lu-lang",
+  "displayName": "Язык Лу",
+  "description": "Поддержка языка программирования Лу",
+  "version": "0.4.0",
+  "publisher": "artik-zenevich",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/artixzenevich/lu-lang-alpha.git"
+  },
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onLanguage:lu"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "lu",
+        "aliases": ["Lu", "lu"],
+        "extensions": [".lu"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "lu",
+        "scopeName": "source.lu",
+        "path": "./syntaxes/lu.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "lu",
+        "path": "./snippets/lu.json"
+      }
+    ],
+    "configurationDefaults": {
+      "[lu]": {
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
+      }
+    }
+  }
+}
