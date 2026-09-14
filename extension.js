@@ -30,6 +30,8 @@ const CONSTANTS = [
 
 const BUILTINS = [
     { label: "длина", insertText: "длина(${1:выражение})", detail: "Длина массива, строки или объекта" },
+    { label: "код", insertText: "код(${1:символ})", detail: "Unicode-код символа" },
+    { label: "символ", insertText: "символ(${1:число})", detail: "Символ по Unicode-коду" },
 ];
 
 function collectFileSymbols(document) {

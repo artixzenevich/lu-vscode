@@ -106,7 +106,7 @@
       "patterns": [
         {
           "name": "support.function.builtin.lu",
-          "match": "(?<![\\p{L}\\p{N}_])длина(?=\\s*\\()"
+          "match": "(?<![\\p{L}\\p{N}_])(?:длина|код|символ)(?=\\s*\\()"
         }
       ]
     },
