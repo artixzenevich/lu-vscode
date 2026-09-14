@@ -2,8 +2,8 @@ const vscode = require("vscode");
 
 const KEYWORDS = [
     { label: "запомнить", insertText: "запомнить ", detail: "Объявление и присваивание переменной" },
-    { label: "печать", insertText: "печать: ", detail: "Вывод значения в терминал" },
-    { label: "ввод", insertText: "ввод:", detail: "Чтение значения с клавиатуры" },
+    { label: "печать", insertText: "печать(${1:выражение})", detail: "Вывод значения в терминал" },
+    { label: "ввод", insertText: "ввод()", detail: "Чтение значения с клавиатуры" },
     { label: "выполнить", insertText: "выполнить ", detail: "Вызов процедуры" },
     { label: "вернуть", insertText: "вернуть ", detail: "Возврат значения из процедуры" },
     { label: "процедура", insertText: "процедура ", detail: "Определение процедуры" },
@@ -47,12 +47,12 @@ function collectFileSymbols(document) {
         symbols.variables.add(match[1]);
     }
 
-    const procedureRegex = /процедура\s+([\p{L}\p{N}_]+)\s*:/gu;
+    const procedureRegex = /процедура\s+([\p{L}\p{N}_]+)\s*\(/gu;
     while ((match = procedureRegex.exec(text)) !== null) {
         symbols.procedures.add(match[1]);
     }
 
-    const paramRegex = /процедура\s+[\p{L}\p{N}_]+\s*:\s*([^\n]*)/gu;
+    const paramRegex = /процедура\s+[\p{L}\p{N}_]+\s*\(\s*([^)]*)/gu;
     while ((match = paramRegex.exec(text)) !== null) {
         for (const name of match[1].split(",")) {
             const trimmed = name.trim();
@@ -106,7 +106,7 @@ function activate(context) {
                 return items;
             },
         },
-        ".", ":", " "
+        ".", ":", "(", " "
     );
 
     context.subscriptions.push(provider);
