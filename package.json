@@ -2,7 +2,7 @@
   "name": "lu-lang",
   "displayName": "Язык Лу",
   "description": "Поддержка языка программирования Лу",
-  "version": "0.4.0",
+  "version": "0.5.1",
   "publisher": "artik-zenevich",
   "license": "MIT",
   "repository": {

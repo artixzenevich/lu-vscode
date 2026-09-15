@@ -17,6 +17,8 @@ const KEYWORDS = [
     { label: "пока", insertText: "пока ", detail: "Цикл с условием" },
     { label: "повтори", insertText: "повтори ", detail: "Цикл повторений" },
     { label: "раз", insertText: " раз", detail: "Завершение счётчика повторений" },
+    { label: "прервать", insertText: "прервать", detail: "Выход из цикла" },
+    { label: "продолжить", insertText: "продолжить", detail: "Переход к следующей итерации цикла" },
     { label: "и", insertText: "и", detail: "Логическое И" },
     { label: "или", insertText: "или", detail: "Логическое ИЛИ" },
     { label: "не", insertText: "не ", detail: "Логическое отрицание" },
